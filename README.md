@@ -1,7 +1,10 @@
 <h1 align="center">🐱 ReadMeow</h1>
 <p align="center"><b>Your GitHub profile README, designed for you.</b><br>Type a username, pick a theme, download. Animated cards, and stats that refresh themselves every day.</p>
 
-<p align="center"><img src="docs/studio.png" width="100%" alt="The ReadMeow studio: settings on the left, a live GitHub-style preview of the generated README on the right"></p>
+<p align="center"><img src="docs/demo.gif" width="100%" alt="ReadMeow demo: the demo profile loads, the theme switches between Sunset, Neon, Ocean, Paper and Midnight, the Projects section is dragged above About me, two projects are picked, and the Export tab offers the ZIP download"></p>
+<p align="center"><sub>▶ 30-second demo · <a href="docs/demo.mp4">watch as MP4</a></sub></p>
+
+<p align="center"><a href="https://hemashreevi.github.io/ReadMeow/"><b>✨ Try it live</b></a> · <a href="https://hemashreevi.github.io/ReadMeow/?user=demo">See the demo profile</a></p>
 
 ## Why another README generator?
 
@@ -28,11 +31,11 @@ Most generators stitch together images from third-party stats services. Those ge
 
 Drag to reorder any section, or hide it.
 
-<p align="center"><img src="docs/themes.png" width="100%" alt="The Sunset theme in the ReadMeow studio"></p>
+<p align="center"><img src="docs/studio.png" width="49%" alt="The ReadMeow studio in the Midnight theme"> <img src="docs/themes.png" width="49%" alt="The Sunset theme in the ReadMeow studio"></p>
 
 ## Use it
 
-1. Open ReadMeow, type your GitHub username and press **Load** (or try the demo profile).
+1. Open [ReadMeow](https://hemashreevi.github.io/ReadMeow/), type your GitHub username and press **Load** (or try the demo profile).
 2. Edit your details, pick a theme, choose projects and sections.
 3. **Export → Download ZIP**.
 4. Create a repository named exactly like your username (for example `octocat/octocat`). GitHub shows its README on your profile.
