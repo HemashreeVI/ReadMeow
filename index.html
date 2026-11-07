@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReadMeow · Profile README generator</title>
+<meta name="description" content="Type your GitHub username and get a beautiful, animated profile README. Six themes, live preview, one-click ZIP, and cards that refresh themselves every day.">
+<meta property="og:title" content="ReadMeow · your GitHub profile README, designed for you">
+<meta property="og:description" content="Animated cards, six themes, live preview, and stats that refresh themselves. No sign-up.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐱%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="./"><span class="cat">🐱</span> ReadMeow</a>
+  <p class="pitch">Your GitHub profile README, <b>designed for you</b>. Animated cards, live preview, and stats that refresh themselves.</p>
+  <a class="gh" href="https://github.com/HemashreeVI/ReadMeow" target="_blank" rel="noopener">★ Star on GitHub</a>
+</header>
+
+<main class="studio">
+  <aside class="panel">
+    <form id="load" class="load" autocomplete="off">
+      <label class="field"><span class="pre">github.com/</span><input id="user" placeholder="your-username" spellcheck="false" maxlength="39" aria-label="GitHub username"></label>
+      <button class="btn primary" type="submit">Load</button>
+    </form>
+    <p class="hint" id="status">No account handy? <button type="button" class="link" id="demo">Try the demo profile</button></p>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab on" data-tab="you" role="tab">You</button>
+      <button class="tab" data-tab="look" role="tab">Look</button>
+      <button class="tab" data-tab="sections" role="tab">Sections</button>
+      <button class="tab" data-tab="projects" role="tab">Projects</button>
+      <button class="tab" data-tab="export" role="tab">Export</button>
+    </nav>
+
+    <section class="pane on" data-pane="you">
+      <label class="lbl">Name<input class="in" data-m="name"></label>
+      <label class="lbl">Role<input class="in" data-m="role" placeholder="Backend Engineer"></label>
+      <label class="lbl">One-line pitch<textarea class="in" rows="2" data-m="tagline" placeholder="I build…"></textarea></label>
+      <label class="lbl">Location<input class="in" data-m="location"></label>
+      <label class="lbl">Focus areas <small>comma separated, up to 5</small><input class="in" data-list="focus" placeholder="Backend, AI, Open Source"></label>
+      <div class="grid2">
+        <label class="lbl">Working on now<input class="in" data-m="now"></label>
+        <label class="lbl">Learning<input class="in" data-m="learning"></label>
+        <label class="lbl">Ask me about<input class="in" data-m="askMe"></label>
+        <label class="lbl">Fun fact<input class="in" data-m="funFact"></label>
+      </div>
+      <label class="lbl">Toolkit <small>comma separated</small><textarea class="in" rows="2" data-list="skills"></textarea></label>
+      <div class="grid2">
+        <label class="lbl">LinkedIn<input class="in" data-link="linkedin" placeholder="your-name"></label>
+        <label class="lbl">Website<input class="in" data-link="website" placeholder="you.dev"></label>
+        <label class="lbl">X<input class="in" data-link="x" placeholder="handle"></label>
+        <label class="lbl">Email<input class="in" data-link="email" type="email"></label>
+      </div>
+      <label class="lbl">Footer line<input class="in" data-m="footer"></label>
+    </section>
+
+    <section class="pane" data-pane="look">
+      <h3>Theme</h3><div id="themes" class="themes"></div>
+      <label class="switch"><input type="checkbox" id="anim" checked><span></span> Animations <small>(fade, type and slide in on GitHub)</small></label>
+      <h3>Preview as</h3>
+      <div class="seg" role="radiogroup"><button class="on" data-gh="dark">GitHub dark</button><button data-gh="light">GitHub light</button></div>
+    </section>
+
+    <section class="pane" data-pane="sections">
+      <p class="hint">Drag to reorder. Untick to hide.</p>
+      <ol id="sections" class="sortable"></ol>
+    </section>
+
+    <section class="pane" data-pane="projects">
+      <p class="hint" id="pickHint">Tick up to 6 repos. Order follows your ticks.</p>
+      <input class="in" id="repoQ" placeholder="Filter repositories">
+      <ul id="repos" class="repos"></ul>
+    </section>
+
+    <section class="pane" data-pane="export">
+      <button class="big" id="zip"><b>⬇ Download ZIP</b><span>README.md, every card, and the daily auto-refresh</span></button>
+      <button class="big" id="copy"><b>📋 Copy README.md</b><span>paste it straight into GitHub</span></button>
+      <ol class="steps">
+        <li>Create a repo named <code id="repoName">your-username</code> (same as your username). GitHub shows its README on your profile.</li>
+        <li>Unzip and upload everything, keeping the folders (<code>assets/</code>, <code>.readmeow/</code>, <code>.github/</code>).</li>
+        <li>Done. Stats, languages and project cards redraw themselves every day. Run it any time from the <b>Actions</b> tab.</li>
+      </ol>
+      <p class="hint">Everything runs in your browser. No sign-up, nothing stored on a server.</p>
+    </section>
+  </aside>
+
+  <section class="stage">
+    <div class="ghframe" id="frame">
+      <div class="ghbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span id="url">github.com/your-username</span></div>
+      <div class="ghhead"><span class="file">📄 README.md</span></div>
+      <article id="preview" class="md"><div class="empty">Load a username or the demo profile to see your README here.</div></article>
+    </div>
+  </section>
+</main>
+<div id="toast" class="toast" role="status"></div>
+
+<script src="js/cards.js"></script>
+<script src="js/readme.js"></script>
+<script src="js/zip.js"></script>
+<script src="js/demo.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
